@@ -1,0 +1,25 @@
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 16px 30px;
+  min-width: 237px;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: $white-color;
+  background: transparent;
+  background-color: $accent-color;
+  transition: $transition;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    background-color: #c8070f;
+  }
+
+  @include hover {
+    &:hover {
+
+    }
+  }
+}

@@ -1,0 +1,16 @@
+// base
+:root {
+  --content-width: 1080px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + var(--container-offset));
+}
+
+$font-family: "Helvetica", sans-serif;
+$transition: 0.25s ease-in-out;
+$menu-transition: 0.35s ease-in-out;
+
+// colors
+$main-color: #333;
+$white-color: #fff;
+$black-color: #000;
+$accent-color: #d2232a;
