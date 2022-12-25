@@ -1,6 +1,6 @@
 .burger {
-  $burger-width: 30px;
-  $burger-height: 30px;
+  $burger-width: 20px;
+  $burger-height: 16px;
   $burger-line-height: 2px;
 
   position: relative;
@@ -38,6 +38,7 @@
     position: absolute;
     left: 0;
     top: 50%;
+    display: block;
     width: 100%;
     height: $burger-line-height;
     background-color: currentcolor;

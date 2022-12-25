@@ -1,19 +1,72 @@
-.section-title {
-  font-size: 36px;
+.page-wrapper {
+  @include footerToBottom;
+
+  overflow: hidden;
 }
 
-.section-subtitle {
-  font-size: 20px;
+.main {
+  padding-top: 30px;
 }
 
-.color-accent {
-  color: $accent-color;
+.container {
+  margin: 0 auto;
+  padding: 0 var(--container-offset);
+  max-width: var(--container-width);
 }
 
-.section-padding {
-  padding: 100px 0;
+.is-hidden {
+  display: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
-.section-margin {
-  padding: 60px 0;
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+.disable-scroll {
+  overflow: hidden;
+
+  body {
+    overflow: hidden;
+  }
+}
+
+.btn-reset {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input-reset {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
 }

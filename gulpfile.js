@@ -41,35 +41,37 @@ const clean = () => {
 };
 
 const styles = () => {
-  return src(paths.srcScss, { sourcemaps: !isProd })
-    .pipe(
-      plumber(
-        notify.onError({
-          title: 'SCSS',
-          message: 'Error: <%= error.message %>',
+  return (
+    src(paths.srcScss, { sourcemaps: !isProd })
+      .pipe(
+        plumber(
+          notify.onError({
+            title: 'SCSS',
+            message: 'Error: <%= error.message %>',
+          })
+        )
+      )
+      .pipe(mainSass())
+      // .pipe(replace(/@img\//g, '../img/'))
+      .pipe(
+        autoprefixer({
+          cascade: false,
+          grid: true,
+          overrideBrowserslist: ['last 5 versions'],
         })
       )
-    )
-    .pipe(mainSass())
-    // .pipe(replace(/@img\//g, '../img/'))
-    .pipe(
-      autoprefixer({
-        cascade: false,
-        grid: true,
-        overrideBrowserslist: ['last 5 versions'],
-      })
-    )
-    .pipe(gcmq())
-    .pipe(
-      gulpif(
-        isProd,
-        cleanCSS({
-          level: 2,
-        })
+      .pipe(gcmq())
+      .pipe(
+        gulpif(
+          isProd,
+          cleanCSS({
+            level: 2,
+          })
+        )
       )
-    )
-    .pipe(dest(paths.buildCssFolder, { sourcemaps: '.' }))
-    .pipe(browserSync.stream());
+      .pipe(dest(paths.buildCssFolder, { sourcemaps: '.' }))
+      .pipe(browserSync.stream())
+  );
 };
 
 const scripts = () => {
@@ -153,7 +155,7 @@ const html = () => {
   return src([`${srcFolder}/*.pug`])
     .pipe(plumber())
     .pipe(pug({ pretty: true }))
-    // .pipe(replace(/@img\//g, 'img/'))
+    .pipe(replace(/@img\//g, 'img/'))
     .pipe(dest(buildFolder))
     .pipe(browserSync.stream());
 };
